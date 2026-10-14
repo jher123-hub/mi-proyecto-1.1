@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institución Educativa San Francisco</title>
+    <!-- Tailwind CSS (Framework CSS) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a', // Azul marino institucional
+                        secondary: '#d97706', // Dorado institucional
+                        accent: '#0ea5e9' // Celeste acento
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Archivo de Estilos Personalizados -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-['Inter'] bg-slate-50 text-slate-800 antialiased">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center text-white shadow-md">
+                        <i class="fa-solid fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <div>
+                        <span class="block font-bold text-lg text-primary leading-tight">San Francisco</span>
+                        <span class="text-xs text-slate-500 tracking-wider uppercase">Institución Educativa</span>
+                    </div>
+                </div>
+
+                <!-- Menú Escritorio -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#inicio" class="text-primary hover:text-accent transition-colors">Inicio</a>
+                    <a href="#nosotros" class="text-slate-600 hover:text-primary transition-colors">Nosotros</a>
+                    <a href="#academico" class="text-slate-600 hover:text-primary transition-colors">Académico</a>
+                    <a href="#admision" class="text-slate-600 hover:text-primary transition-colors">Admisión 2027</a>
+                    <a href="#contacto" class="text-slate-600 hover:text-primary transition-colors">Contacto</a>
+                </nav>
+
+                <!-- Botón Portal Padres -->
+                <div class="hidden md:flex items-center">
+                    <button onclick="abrirPortal()" class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg font-medium shadow-sm transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-user-lock mr-2"></i>Portal de Padres
+                    </button>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-slate-700 hover:text-primary focus:outline-none text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#inicio" class="block py-2 text-primary font-medium">Inicio</a>
+            <a href="#nosotros" class="block py-2 text-slate-600 font-medium">Nosotros</a>
+            <a href="#academico" class="block py-2 text-slate-600 font-medium">Académico</a>
+            <a href="#admision" class="block py-2 text-slate-600 font-medium">Admisión 2027</a>
+            <a href="#contacto" class="block py-2 text-slate-600 font-medium">Contacto</a>
+            <button onclick="abrirPortal()" class="w-full mt-2 bg-primary text-white py-2.5 rounded-lg font-medium">
+                <i class="fa-solid fa-user-lock mr-2"></i>Portal de Padres
+            </button>
+        </div>
+    </header>
+
+    <!-- SECCIÓN HERO -->
+    <section id="inicio" class="relative bg-gradient-to-br from-primary via-blue-900 to-slate-900 text-white py-24 lg:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-secondary/20 text-secondary border border-secondary/30">
+                        <i class="fa-solid fa-star mr-1.5"></i> Excelencia Educativa Comprobada
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Formando líderes con valores para el <span class="text-secondary">futuro</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 max-w-xl font-light">
+                        Brindamos una educación integral de alta calidad académica y tecnológica, fomentando el pensamiento crítico y el desarrollo humano.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#admision" class="bg-secondary hover:bg-amber-600 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg text-center transition-all">
+                            Postula a la Admisión 2027
+                        </a>
+                        <a href="#contacto" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-3.5 rounded-xl font-semibold text-center transition-all">
+                            Contáctanos
+                        </a>
+                    </div>
+                </div>
+                <!-- Tarjetas Estadísticas Flotantes -->
+                <div class="relative flex justify-center">
+                    <div class="w-full max-w-md bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-2xl space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center text-white">
+                                <i class="fa-solid fa-award text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">+25 Años</h3>
+                                <p class="text-sm text-slate-300">De trayectoria institucional</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                            <div>
+                                <h4 class="text-xl font-bold text-secondary">100%</h4>
+                                <p class="text-xs text-slate-300">Ingreso universitario</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-secondary">Nivel A</h4>
+                                <p class="text-xs text-slate-300">Certificación de calidad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold text-secondary uppercase tracking-widest mb-3">Nuestra Esencia</h2>
+                <h3 class="text-3xl font-bold text-primary sm:text-4xl">Comprometidos con la excelencia y los valores</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-blue-100 text-primary rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Misión</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Formar estudiantes íntegros y competentes mediante una propuesta pedagógica innovadora, centrada en el desarrollo humano, científico y tecnológico.
+                    </p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-amber-100 text-secondary rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Visión</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Ser reconocidos al 2030 como una institución educativa líder en innovación pedagógica y formación en valores, referente de éxito académico en la región.
+                    </p>
+                </div>
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-sky-100 text-accent rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-primary mb-3">Valores</h4>
+                    <p class="text-slate-600 leading-relaxed">
+                        Promovemos la honestidad, la empatía, la responsabilidad, la perseverancia y el respeto mutuo como pilares fundamentales de nuestra comunidad.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFERTA ACADÉMICA (Pestañas Dinámicas con JS) -->
+    <section id="academico" class="py-20 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-semibold text-secondary uppercase tracking-widest mb-3">Niveles de Estudio</h2>
+                <h3 class="text-3xl font-bold text-primary sm:text-4xl">Una ruta educativa para cada etapa</h3>
+            </div>
+
+            <!-- Botones de Pestañas -->
+            <div class="flex justify-center mb-10 space-x-2 sm:space-x-4">
+                <button onclick="cambiarNivel('inicial')" id="btn-inicial" class="tab-btn px-6 py-3 rounded-xl font-semibold bg-primary text-white shadow transition-all">Inicial</button>
+                <button onclick="cambiarNivel('primaria')" id="btn-primaria" class="tab-btn px-6 py-3 rounded-xl font-semibold bg-white text-slate-600 hover:bg-slate-200 shadow-sm transition-all">Primaria</button>
+                <button onclick="cambiarNivel('secundaria')" id="btn-secundaria" class="tab-btn px-6 py-3 rounded-xl font-semibold bg-white text-slate-600 hover:bg-slate-200 shadow-sm transition-all">Secundaria</button>
+            </div>
+
+            <!-- Contenido de las Pestañas -->
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl p-8 sm:p-12 shadow-md border border-slate-200">
+                <div id="content-inicial" class="nivel-content space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-sky-100 text-accent rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-child"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-primary">Nivel Inicial (3 a 5 años)</h4>
+                            <p class="text-slate-500">Estimulación temprana y desarrollo socioemocional</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        En esta etapa vital, estimulamos la curiosidad natural de los niños a través del juego, la exploración sensorial, el aprestamiento y el primer contacto con el idioma inglés en un ambiente seguro y afectuoso.
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-slate-700 font-medium">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Talleres de psicomotricidad</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Iniciación al inglés lúdico</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Arte y expresión musical</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Acompañamiento psicológico</li>
+                    </ul>
+                </div>
+
+                <div id="content-primaria" class="nivel-content hidden space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-blue-100 text-primary rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-primary">Nivel Primaria (1° a 6° Grado)</h4>
+                            <p class="text-slate-500">Consolidación de competencias y pensamiento crítico</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        Fortalecemos las habilidades de lectoescritura, razonamiento lógico-matemático e investigación científica, fomentando hábitos de estudio sólidos y la práctica constante de valores ciudadanos.
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-slate-700 font-medium">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Inglés intensivo</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Laboratorio de cómputo y robótica</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Talleres deportivos (Fútbol y Básquet)</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Feria de ciencias anual</li>
+                    </ul>
+                </div>
+
+                <div id="content-secundaria" class="nivel-content hidden space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-amber-100 text-secondary rounded-xl flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-2xl font-bold text-primary">Nivel Secundaria (1° a 5° Año)</h4>
+                            <p class="text-slate-500">Preparación preuniversitaria y orientación vocacional</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-600 leading-relaxed">
+                        Preparamos a nuestros estudiantes para afrontar con éxito su ingreso a la educación superior mediante un exigente nivel académico, mentoría personalizada y proyectos de emprendimiento.
+                    </p>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-slate-700 font-medium">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Convenios con universidades</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Simulacros tipo examen de admisión</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Orientación vocacional especializada</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-secondary mr-2"></i> Liderazgo y oratoria</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMISIÓN 2027 Y FORMULARIO -->
+    <section id="admision" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Información Proceso -->
+                <div class="space-y-6">
+                    <span class="text-xs font-semibold text-secondary uppercase tracking-widest">Proceso Abierto</span>
+                    <h2 class="text-3xl font-bold text-primary sm:text-4xl">Admisión 2027</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        Únete a nuestra gran familia educativa. Conoce los pasos para postular y asegura vacante para el próximo año escolar.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-primary">Registro de Postulante</h4>
+                                <p class="text-sm text-slate-500">Completa el formulario en línea con los datos del estudiante.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-primary">Entrevista con la Dirección</h4>
+                                <p class="text-sm text-slate-500">Reunión informativa con los padres de familia.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-primary">Evaluación Diagnóstica</h4>
+                                <p class="text-sm text-slate-500">Prueba de nivel acorde a la edad del postulante.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm shrink-0">4</div>
+                            <div>
+                                <h4 class="font-bold text-primary">Matrícula</h4>
+                                <p class="text-sm text-slate-500">Entrega de expediente y formalización del ingreso.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Admisión -->
+                <div class="bg-slate-50 p-8 sm:p-10 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Solicita Informes / Inscripción</h3>
+                    <form id="form-admision" onsubmit="enviarFormulario(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Nombre del Padre o Apoderado</label>
+                            <input type="text" id="nombre-padre" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Teléfono / Celular</label>
+                                <input type="tel" id="telefono" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Correo Electrónico</label>
+                                <input type="email" id="email" required class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Nivel al que postula</label>
+                            <select id="nivel-postula" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary focus:outline-none bg-white">
+                                <option value="Inicial">Inicial</option>
+                                <option value="Primaria">Primaria</option>
+                                <option value="Secundaria">Secundaria</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Mensaje o Comentarios</label>
+                            <textarea id="mensaje" rows="3" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary focus:outline-none" placeholder="¿Tienes alguna duda específica?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-secondary hover:bg-amber-600 text-white font-semibold py-3 rounded-lg shadow transition-all">
+                            Enviar Solicitud
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer id="contacto" class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <span class="font-bold text-lg text-white">San Francisco</span>
+                    </div>
+                    <p class="text-sm text-slate-400">
+                        Formando el carácter y el intelecto de las nuevas generaciones con valores sólidos.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#inicio" class="hover:text-secondary transition-colors">Inicio</a></li>
+                        <li><a href="#nosotros" class="hover:text-secondary transition-colors">Nosotros</a></li>
+                        <li><a href="#academico" class="hover:text-secondary transition-colors">Académico</a></li>
+                        <li><a href="#admision" class="hover:text-secondary transition-colors">Admisión 2027</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contacto</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center"><i class="fa-solid fa-location-dot text-secondary mr-2.5 w-5"></i> Av. Los Libertadores 450, Ciudad</li>
+                        <li class="flex items-center"><i class="fa-solid fa-phone text-secondary mr-2.5 w-5"></i> +51 (01) 234-5678</li>
+                        <li class="flex items-center"><i class="fa-solid fa-envelope text-secondary mr-2.5 w-5"></i> informes@colegiosanfrancisco.edu.pe</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Síguenos</h4>
+                    <div class="flex space-x-3">
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary text-white rounded-lg flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary text-white rounded-lg flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary text-white rounded-lg flex items-center justify-center transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-primary text-white rounded-lg flex items-center justify-center transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-500">
+                <p>&copy; 2027 Institución Educativa San Francisco. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL DE ÉXITO PERSONALIZADO -->
+    <div id="modal-exito" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-8 text-center space-y-4 shadow-2xl animate-fade-in">
+            <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-primary">¡Solicitud Enviada!</h3>
+            <p class="text-slate-600 text-sm">
+                Hemos recibido tus datos correctamente. Nuestro equipo de admisión se pondrá en contacto contigo a la brevedad.
+            </p>
+            <button onclick="cerrarModal()" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-2.5 rounded-lg transition-all">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- Archivo de Lógica JS -->
+    <script src="script.js"></script>
+</body>
+</html>
